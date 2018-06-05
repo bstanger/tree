@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import './App.css';
-import Tree from './components/tree.js';
+import './../style/App.css';
+import Tree from './tree.js';
 
 class App extends Component {
   render() {
