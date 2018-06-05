@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Node from './node.js';
 import TreeObject from './treeObject.js';
+import './../style/tree.css'
 
 class Tree extends Component {
   constructor(props){
@@ -34,7 +35,7 @@ class Tree extends Component {
 
   render() {
     return (
-      <section>
+      <section className='tree'>
         {!this.state.isEmpty ?
           <Node nodeData={this.state.treeData}/>
         :

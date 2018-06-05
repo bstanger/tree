@@ -1,0 +1,27 @@
+.node {
+  flex: 1 1 auto;
+}
+
+/****************** PARENT ******************/
+
+.parent {
+  display: flex;
+  justify-content: center;
+}
+
+.parent__circle {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 30px;
+  padding: 10px;
+  border-radius: 50%;
+  border: 1px solid red;
+}
+
+/****************** CHILDREN ******************/
+
+.children {
+  display: flex;
+}
