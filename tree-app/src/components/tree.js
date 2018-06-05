@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Node from './node.js';
-// import TreeObject from
+import TreeObject from './treeObject.js';
 
 class Tree extends Component {
   constructor(props){
@@ -19,14 +19,16 @@ class Tree extends Component {
       }
       for(var j = 0; j < newTree.children.length; j++){
         for(var k = 0; k < 5; k++){
-          newTree.children[j].addChild();
+          if(Math.floor(Math.random() * 2) === 0){
+            newTree.children[j].addChild();
+          }
         }
       }
       console.log('New Tree is ', newTree);
-      this.setState = {
+      this.setState({
         isEmpty: false,
         treeData: newTree
-      };
+      });
     }
   }
 
@@ -34,44 +36,13 @@ class Tree extends Component {
     return (
       <section>
         {!this.state.isEmpty ?
-          <Node nodeData={this.state.nodeData}/>
+          <Node nodeData={this.state.treeData}/>
         :
           <button onClick={() => this.generateTree()}>Generate a Random Family Tree!</button>
         }
       </section>
     )
   }
-}
-
-class TreeObject {
-  constructor(props){
-    this.name = props.name || null;
-    this.age = props.age || null;
-    this.children = props.children || [];
-  }
-
-  addChild(childProps){
-    childProps = childProps || this.randomizeNodeData();
-    if(childProps){
-      let newChild = new TreeObject(childProps);
-      this.children.push(newChild);
-    }
-  }
-
-  randomizeNodeData(){
-    if(Math.floor(Math.random() * 2) === 0){
-      return null
-    }
-    const randomNames = ['Alice', 'Bob', 'Christine', 'Deepa', 'Ed', 'Filina', 'Gary', 'Helena', 'Ignacio', 'Jack', 'Keisha', 'Lee'];
-    const nameIdx = Math.floor(Math.random() * randomNames.length);
-    const name = randomNames[nameIdx];
-    const age = Math.ceil(Math.random() * 100);
-    return {name, age}
-  }
-
-  // removeChild(){
-  //   alert('remove child');
-  // }
 }
 
 export default Tree;
