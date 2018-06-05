@@ -8,9 +8,11 @@ class Node extends Component {
       <div className='node'>
 
         <div className='parent'>
+          <div className='parent__left-line'></div>
           <button className='parent__add small-icon-btn' onClick={() => this.props.addNode(this.props.nodeData.id)}>+</button>
           <div className='parent__circle'><span className='parent__name'>{this.props.nodeData.name}</span></div>
           <button className='parent__remove small-icon-btn' onClick={() => this.props.removeNode(this.props.nodeData.id)}>-</button>
+          <div className='parent__right-line'></div>
         </div>
 
         {this.props.nodeData.children.length !== 0 &&
@@ -18,6 +20,7 @@ class Node extends Component {
           {this.props.nodeData.children.map((child, idx) =>
             <Node nodeData={child} key={idx} addNode={this.props.addNode} removeNode={this.props.removeNode}/>
           )}
+            <div className='children__vert-line'></div>
           </div>
         }
       </div>

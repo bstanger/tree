@@ -8,6 +8,29 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+}
+
+.parent__left-line {
+  position: absolute;
+  left: 0;
+  top: -10px;
+  height: 15px;
+  width: 50%;
+  background-color: white;
+  z-index: 50;
+  display: none;
+}
+
+.parent__right-line {
+  position: absolute;
+  left: 50%;
+  top: -10px;
+  height: 15px;
+  width: 55%;
+  background-color: white;
+  z-index: 50;
+  display: none;
 }
 
 .parent__add,
@@ -30,11 +53,32 @@
   padding: 10px;
   border-radius: 50%;
   border: 3px solid #bdd9bf;
+  z-index: 100;
 }
 
 /****************** CHILDREN ******************/
 
 .children {
   display: flex;
+  position: relative;
   margin: 14px 0;
+  border-top: 3px solid #412234;
+}
+
+.children__vert-line {
+  position: absolute;
+  height: 14px;
+  width: 3px;
+  background-color: #412234;
+  top: -14px;
+  left: 50%;
+  z-index: 150;
+}
+
+.children > .node:first-of-type > .parent > .parent__left-line {
+  display: block;
+}
+
+.children > .node:nth-last-of-type(2) > .parent > .parent__right-line {
+  display: block;
 }
