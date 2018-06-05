@@ -9,8 +9,18 @@
   justify-content: center;
 }
 
+.parent__add,
+.parent__remove {
+  visibility: hidden;
+  cursor: pointer;
+}
+
+.parent:hover .parent__add,
+.parent:hover .parent__remove {
+  visibility: visible;
+}
+
 .parent__circle {
-  margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
