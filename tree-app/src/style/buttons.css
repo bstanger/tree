@@ -1,0 +1,26 @@
+button.large-action-btn {
+  height: 40px;
+  line-height: 40px;
+  font-size: 1em;
+  padding: 0 20px;
+  border: 0;
+  border-radius: 5px;
+  background-color: #ffc857;
+  color: #412234;
+  cursor: pointer;
+}
+
+button.small-icon-btn {
+  border: 0;
+  border-radius: 50%;
+  margin: 5px;
+  padding: 5px 10px;
+  font-size: 1rem;
+  background-color: #ffc857;
+  color: #412234;
+}
+
+button.large-action-btn:hover,
+button.small-icon-btn:hover {
+  background-color: #e5b44e;
+}

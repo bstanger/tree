@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Node from './node.js';
 import TreeObject from './treeObject.js';
-import './../style/tree.css'
+import './../style/tree.css';
+import './../style/buttons.css';
 
 class Tree extends Component {
   constructor(props){
@@ -58,10 +59,7 @@ class Tree extends Component {
   removeNode(nodeId){
     let treeDataCopy = Object.assign(new TreeObject({}), this.state.treeData);
     if(nodeId === 0){
-      this.setState({
-        isEmpty: true,
-        treeData: null
-      })
+      this.removeTree();
       return;
     }
     let recurseChildren = (children, parent) => {
@@ -82,13 +80,20 @@ class Tree extends Component {
     this.setState({treeData: treeDataCopy});
   }
 
+  removeTree(){
+    this.setState({
+      isEmpty: true,
+      treeData: null
+    })
+  }
+
   render() {
     return (
       <section className='tree'>
-        {!this.state.isEmpty ?
-          <Node nodeData={this.state.treeData} addNode={this.addNode.bind(this)} removeNode={this.removeNode.bind(this)}/>
+        {this.state.isEmpty ?
+          <button className='large-action-btn' onClick={() => this.generateTree()}>Generate a Random Family Tree!</button>
         :
-          <button onClick={() => this.generateTree()}>Generate a Random Family Tree!</button>
+          <Node nodeData={this.state.treeData} addNode={this.addNode.bind(this)} removeNode={this.removeNode.bind(this)}/>
         }
       </section>
     )

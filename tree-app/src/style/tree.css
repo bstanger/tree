@@ -1,4 +1,15 @@
 .tree {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 80vw;
+  height: 80vh;
   margin: 30px auto;
+  box-sizing: border-box;
+}
+
+.tree .large-action-btn {
+  width: 40vw;
+  min-width: 275px;
 }
